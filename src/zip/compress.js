@@ -4,8 +4,8 @@ import { pipeline } from 'stream';
 export const compress = async () => {
   const gzip = zlib.createGzip();
 
-  const inp = fs.createReadStream('zip/files/fileToCompress.txt');
-  const out = fs.createWriteStream('zip/files/archive.gz');
+  const inp = fs.createReadStream('src/zip/files/fileToCompress.txt');
+  const out = fs.createWriteStream('src/zip/files/archive.gz');
   pipeline(inp, gzip, out, (err) => {
     if (err) {
       console.error('An error occurred:', err);

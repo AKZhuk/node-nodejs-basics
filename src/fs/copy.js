@@ -1,6 +1,21 @@
 import fs from 'fs';
 
 export const copy = async () => {
-  if (fs.existsSync('files/fileToRemove.txt')) throw new Error('FS operation failed');
-  fs.copy('files', 'files_copy', (err) => {});
+  fs.readdir('./src/fs/files', (err, files) => {
+    if (err?.code === 'ENOENT') {
+      throw 'FS operation has failed';
+    }
+    fs.access('./src/fs/copy-files', (err) => {
+      if (!err) {
+        throw 'FS operation failed';
+      }
+      fs.mkdir('./src/fs/copy-files', (err) => {
+        files.forEach((file) => {
+          fs.copyFile(`./src/fs/files/${file}`, `./src/fs/copy-files/${file}`, (err) => {});
+        });
+      });
+    });
+  });
 };
+
+copy();
