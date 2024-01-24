@@ -5,10 +5,10 @@ const checkFiles = () => {
     throw new Error('FS operation failed');
 };
 
-export const rename = async () => {
+const rename = async () => {
   checkFiles();
   fs.rename('src/fs/files/wrongFilename.txt', 'properFilename.md', (err) => {
     if (err) throw new Error('FS operation failed');
   });
 };
-rename();
+await rename();

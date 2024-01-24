@@ -1,4 +1,4 @@
-export const parseArgs = () => {
+const parseArgs = () => {
   const args = [];
   const temp = process.argv.slice(2);
 

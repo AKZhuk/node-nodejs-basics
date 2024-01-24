@@ -1,8 +1,9 @@
+
 import zlib from 'zlib';
 import fs from 'fs';
 import { pipeline } from 'stream';
 
-export const decompress = async () => {
+const decompress = async () => {
   const gzip = zlib.createUnzip();
 
   const out = fs.createReadStream('src/zip/files/archive.gz');

@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-export const write = async () => {
+const write = async () => {
   const filePath = '/src/streams/files/fileToWrite.txt';
 
   const writer = fs.createWriteStream(filePath, 'utf8');
@@ -8,4 +8,4 @@ export const write = async () => {
   process.stdin.pipe(writer);
 };
 
-write();
+await write();

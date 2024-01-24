@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-export const copy = async () => {
+const copy = async () => {
   fs.readdir('./src/fs/files', (err, files) => {
     if (err?.code === 'ENOENT') {
       throw 'FS operation has failed';
@@ -18,4 +18,4 @@ export const copy = async () => {
   });
 };
 
-copy();
+await copy();

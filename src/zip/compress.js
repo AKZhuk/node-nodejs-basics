@@ -1,7 +1,8 @@
 import zlib from 'zlib';
 import fs from 'fs';
 import { pipeline } from 'stream';
-export const compress = async () => {
+
+const compress = async () => {
   const gzip = zlib.createGzip();
 
   const inp = fs.createReadStream('src/zip/files/fileToCompress.txt');
@@ -14,4 +15,4 @@ export const compress = async () => {
   });
 };
 
-compress();
+await compress();
