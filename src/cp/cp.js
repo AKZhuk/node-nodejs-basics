@@ -10,10 +10,6 @@ const spawnChildProcess = async (args) => {
   child.on('close', (code) => {
     console.log(`child process exited with code ${code}`);
   });
-
-  process.stdin.on('data', (data) => {
-    forkProcess.send(data);
-  });
 };
 
 spawnChildProcess([1, 2, 3]);

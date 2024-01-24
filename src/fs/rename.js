@@ -7,7 +7,7 @@ const checkFiles = () => {
 
 const rename = async () => {
   checkFiles();
-  fs.rename('src/fs/files/wrongFilename.txt', 'properFilename.md', (err) => {
+  fs.rename('src/fs/files/wrongFilename.txt', 'src/fs/files/properFilename.md', (err) => {
     if (err) throw new Error('FS operation failed');
   });
 };
