@@ -1,5 +1,10 @@
+import crypto from 'crypto';
+import fs from 'fs';
+
 const calculateHash = async () => {
-    // Write your code here 
+  const fileBuffer = fs.readFileSync('src/hash/files/fileToCalculateHashFor.txt');
+  return crypto.createHash('sha256').update(fileBuffer).digest('hex');
 };
 
-await calculateHash();
+const hash = await calculateHash();
+console.log(hash)
